@@ -1,0 +1,48 @@
+body h2, h3 {
+    color: #333F70;
+}
+body p {
+color:#45507D;
+}
+
+
+.box{
+    background-color:  #DBC19C;
+}
+div{
+    border:1px dotted black;
+    padding: 2.1rem;
+    text-align: center;
+border-radius: 1.5rem;
+}
+.header  {
+     background-color: #93A92A;
+     
+}
+.main-section{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.wrapper {
+    background-image: url(../images/pexels-photo-240040\ 2.jpeg);
+background-size: 100%;
+/* background-color: #0055e8;
+background-image: url("https://www.transparenttextures.com/patterns/nice-snow.png"); */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.btn {
+    background-color: #CDCA8E;
+    color:#333F70;
+    border:1px solid #333F70;
+}
+.footer {
+     background-color: #93A92A;
+}
+#timer{
+    font-size: 2.2rem;
+}
+#question {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
