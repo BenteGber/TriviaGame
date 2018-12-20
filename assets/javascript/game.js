@@ -66,13 +66,20 @@ function QuestionCard(x, question, correctAnswer, incorrectAnswers) {
         watch.stop();
         watch.reset();
         if (button === this.correctAnswer) {
+            totalCorrect++;
             this.displayCongratulations();
+            setTimeout(function () { displayNextCard(x); }, 3000);
+
         } else {
+            totalWrong++;
             this.displayCorrectAnswer();
+            setTimeout(function () { displayNextCard(x); }, 3000);
+
         }
     };
 
     this.displayImage = function () {
+        watch.start();
         this.shuffleArray();
         div.html(`<h2> ${question} </h2> 
         <button type= "button" id="cardButton1" class= "btn btn-primary btn-lg btn-block" onclick="card${x}.checkAnswer(card${x}.allAnswers[0])" value ="${this.allAnswers[0]}">${this.allAnswers[0]}</button>
@@ -85,7 +92,8 @@ function QuestionCard(x, question, correctAnswer, incorrectAnswers) {
     };
     this.displayCongratulations = function () {
         div.html(`<h2>Great Job!</h2>`);
-    }
+    };
+
 
 
 
@@ -93,15 +101,45 @@ function QuestionCard(x, question, correctAnswer, incorrectAnswers) {
 }
 
 let card1 = new QuestionCard("1", "What is God?", "Man", ["Real", "Omnipitent", "Forgiving"]);
-
+let card2 = new QuestionCard("2", "Functional or OOP?", "Depends on the context", ["Functional only", "OOP always", "CSS"]);
+let card3 = new QuestionCard("3", "Functional or OOP?", "Depends on the context", ["Functional only", "OOP always", "CSS"]);
+let card4 = new QuestionCard("4", "Functional or OOP?", "Depends on the context", ["Functional only", "OOP always", "CSS"]);
+let card5 = new QuestionCard("5", "Functional or OOP?", "Depends on the context", ["Functional only", "OOP always", "CSS"]);
 
 let totalCorrect = 0;
 let totalWrong = 0;
 
+function displayStats() {
+    $('#question').html(`
+    <h2>Total Correct:  ${totalCorrect}</h2>
+    <h2>Total Wrong:  ${totalWrong}</h2>
+    <h3> Restart Game?</h3>
+    <button type= "button" id="" class="btn btn-primary btn-lg btn-block" onclick="startGame()" value ="">Restart Game</button>`)
+};
 
+
+function displayNextCard(b) {
+    switch (b) {
+        case "1":
+            card2.displayImage();
+            break;
+        case "2":
+            card3.displayImage();
+            break;
+        case "3":
+            card4.displayImage();
+            break;
+        case "5":
+            card5.displayImage();
+            break;
+        default:
+            displayStats();
+
+    }
+};
 
 function startGame() {
-    watch.start();
+
     card1.displayImage();
 
 }
